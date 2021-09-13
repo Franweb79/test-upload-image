@@ -57,16 +57,10 @@
 	
 	$fileSize=basename($_FILES['avatar']['size']);/*to evalute the size*/
 	
-	//../imagenes/carolina.jpg
-	//echo $target_dir.basename($_FILES['avatar']['nick'])."<br/>";
-	
-	//../imagenes/carolina.jpg
-	//echo $target_dir.$_FILES['avatar']['nick']."<br/>";
 	
 	
 	
-	/*this method will copy the specified file on first parameter, to the location of second parameter*/
-	/*but we must use the tmp_name, beuase uploades file will be stores in temporary location*/
+	
 	
 	/* https://stackoverflow.com/questions/18929178/move-uploaded-file-function-is-not-working */
 	
@@ -79,7 +73,7 @@
 
 			appropiate validation*/
 		
-		$_SESSION['bandera']="orange";//LO PODEMOS MANDAR AL INDEX Y QUE ALLI MUESTRE LA BANDERA DE ERROR
+		$_SESSION['alert']="red";//LO PODEMOS MANDAR AL INDEX Y QUE ALLI MUESTRE LA BANDERA DE ERROR
 		
 		header('Location: ../index.php');
 	
@@ -87,7 +81,7 @@
 	
 	elseif($fileSize>50000)/*if size is more than 50KB, no*/
 	{
-		$_SESSION['bandera']="blueviolet";
+		$_SESSION['alert']="red";
 		
 		header('Location: ../index.php');
 
@@ -103,12 +97,15 @@
 
 		$user->insertUser($_POST['nick'],$_FILES['avatar']['name']);
 
-		//$_SESSION['usuario']->foto=$fileName;/*esto lo pasa solo a la sesion, no a la bbdd! hay q hacer consulta*/
 
-			/*
-				https://www.w3schools.com/php/func_filesystem_move_uploaded_file.asp
+		/*
+			https://www.w3schools.com/php/func_filesystem_move_uploaded_file.asp
 
-			*/
+			this method will copy the specified file on first parameter, to the location of second parameter
+
+
+		*/
+
 		
 		move_uploaded_file($_FILES['avatar']['tmp_name'],$targetFile);
 	

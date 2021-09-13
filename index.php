@@ -42,11 +42,32 @@
 
 
         <?php
-            if(isset($_SESSION) && isset($_SESSION['alert']) && $_SESSION['alert']=="green" ){
+            if(isset($_SESSION) && isset($_SESSION['alert'])  ){
+        
+                if($_SESSION['alert']=="green"){
         ?>
-                <div class="alert alert-success" role="alert">
-                user successfully created
-                </div>
+
+        
+                    <div class="alert alert-success" role="alert">
+                        user successfully created
+                    </div>
+        <?php
+                }
+
+                elseif($_SESSION['alert']=="red"){
+        ?>
+                    
+                    <div class="alert alert-danger" role="alert">
+                        Please use an .png or .jpg image with less than 50KB. No other image types or
+                        files allowed.
+                    </div>
+        <?php
+                }
+
+        ?>
+        
+        
+                
         <?php
 
                 /*
@@ -106,7 +127,7 @@
                         
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb20 ">
 
-                                <input type="submit" class="btn btn-primary btn-block mb10" value="enviar"/>
+                                <input type="submit" class="btn btn-primary btn-block mb10" value="Send"/>
                             </div>
                         </form>
 
@@ -125,7 +146,7 @@
         Launch demo modal</button>-->
 
         <button type="button" id="myButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal</button>
+        Launch modal with users data</button>
 
 
         
@@ -143,22 +164,16 @@
 
                     <?php
                        // include 'controllers/get_user_data_controller.php';
-                        include 'views/view_user_data.php';
+                       // include 'views/view_user_data.php';
 
                         
                         
-                        if( isset($_SESSION) && isset($_SESSION['users']) )
-                        {
-                            print_r($_SESSION['users']);
-                        }else{
-                            echo "no results";
-                        }
+                       
                     ?>
                     ...<!-- TODO meter a una sesion lops resultados de usuarios, y si no hay "no data"-->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
                 </div>
             </div>
