@@ -32,10 +32,15 @@ $('#myButton').on('click', function () {
           $('#exampleModalBody').html(function(){
 
             let allHTML="<ul>";
+
+            //gets the server url
+           let serverUrl= window.location.origin;
+
+           let imagePath=`${serverUrl}/test_upload_image/imagenes`;
             
             dataReturned.forEach(element => {
               allHTML+=`<li>${element['nick']}</li>
-              <li>${element['foto']}</li><br/>` ;
+              <li><img src=${imagePath}/${element['foto']} alt=${element['foto']} width="200" height="200"/></li><br/> ` ;
               
             });
 
