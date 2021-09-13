@@ -31,12 +31,15 @@ $('#myButton').on('click', function () {
 
           $('#exampleModalBody').html(function(){
 
-            let allHTML="";
-  
+            let allHTML="<ul>";
+            
             dataReturned.forEach(element => {
-              allHTML+="<p>"+element['nick']+ element['foto']+"</p>" ;
+              allHTML+=`<li>${element['nick']}</li>
+              <li>${element['foto']}</li><br/>` ;
               
             });
+
+            allHTML+="</ul>";
   
             return allHTML;
   

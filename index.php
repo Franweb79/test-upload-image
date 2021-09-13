@@ -77,18 +77,46 @@
             */
 
         ?>
-        <form method="post" enctype="multipart/form-data" action="controllers/crearUsuario.php">
 
-            nombre: <input type="text" name="name"/>
+        <div class="container">
+            <div class="row">
+                    <div class="col-sm">
 
-            <label for="avatar">Choose a profile picture:</label>
+                    </div><!--col-->
+                    <div class="col-sm">
 
-            <input type="file"
-            id="avatar" name="avatar"
-            accept="image/png, image/jpeg">
+                        <form method="post" enctype="multipart/form-data" action="controllers/crearUsuario.php">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label sr-only" for="nick"></label>
+                                    <input name="nick" type="text" class="form-control" placeholder="Enter a new nick"  required>
 
-            <input type="submit" value="enviar"/>
-        </form>
+                                </div>
+                            </div>
+                            <p></p>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label sr-only" for="avatar">Choose your avatar. Please no more than 50KB. Only png and jpg accepted</label>
+                                    <input name="avatar" type="file" 
+                                    id="myAvatar" class="form-control" 
+                                    accept="image/png, image/jpeg"  required/>
+
+                                </div>
+                            </div>
+                        
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb20 ">
+
+                                <input type="submit" class="btn btn-primary btn-block mb10" value="enviar"/>
+                            </div>
+                        </form>
+
+                    </div><!--col-->
+                    <div class="col-sm">
+
+                    </div><!--col-->
+            </div><!--row-->
+        </div><!--container-->
+       
 
             
 

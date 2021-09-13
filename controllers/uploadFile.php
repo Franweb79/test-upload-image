@@ -4,15 +4,9 @@
 	
 	//require '../models/Conectar.php'; 
 
-	/*
+	require '../models/Usuario.php';
 
-		as this file will be called on the insertUser method from the class
-		Usuario, we can´t require the Usuario models here.
-		Also as Usuario calls the call Conectar, 
-		it will be commented here as seen above
-
-	*/
-	//require '../models/Usuario.php';
+	
 
 	
 	 /*
@@ -30,7 +24,6 @@
 	$target_dir="../imagenes/"; /*$target_dir - specifies the directory where the file is going to be placed*/
 	//echo $target_dir;
 	
-	//$fileName=basename($_FILES['namePic']['name']); /* The basename() function returns the filename from a path.*/
 
 	/*
 
@@ -38,7 +31,12 @@
 
 		 The basename() function returns the filename from a path.
 
-	*/
+		 $_FILES
+
+		 https://www.php.net/manual/es/features.file-upload.post-method.php
+
+		 $_FILES['the inputname'][`the field name of the $_FILES array: name, size...]
+'	*/
 	$fileName=basename($_FILES['avatar']['name']); 
 	
 	// "../imagenes/carolina.jpg" 
@@ -60,10 +58,10 @@
 	$fileSize=basename($_FILES['avatar']['size']);/*to evalute the size*/
 	
 	//../imagenes/carolina.jpg
-	//echo $target_dir.basename($_FILES['avatar']['name'])."<br/>";
+	//echo $target_dir.basename($_FILES['avatar']['nick'])."<br/>";
 	
 	//../imagenes/carolina.jpg
-	//echo $target_dir.$_FILES['avatar']['name']."<br/>";
+	//echo $target_dir.$_FILES['avatar']['nick']."<br/>";
 	
 	
 	
@@ -87,20 +85,25 @@
 	
 	}
 	
-	elseif($fileSize>500000)/*if size is more than 500KB, no*/
+	elseif($fileSize>50000)/*if size is more than 50KB, no*/
 	{
 		$_SESSION['bandera']="blueviolet";
 		
-				header('Location: ../index.php');
+		header('Location: ../index.php');
 
 		
 		
 		
 	}
 	
-	else/*if extension is right and size is less or equel than required, we upload*/
+	else/*if extension is right and size is less or equel than required, we insert user and upload*/
 	{
-			//$_SESSION['usuario']->foto=$fileName;/*esto lo pasa solo a la sesion, no a la bbdd! hay q hacer consulta*/
+			
+		$user=new Usuario();
+
+		$user->insertUser($_POST['nick'],$_FILES['avatar']['name']);
+
+		//$_SESSION['usuario']->foto=$fileName;/*esto lo pasa solo a la sesion, no a la bbdd! hay q hacer consulta*/
 
 			/*
 				https://www.w3schools.com/php/func_filesystem_move_uploaded_file.asp

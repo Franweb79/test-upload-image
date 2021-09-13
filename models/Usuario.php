@@ -64,7 +64,7 @@
 
 				$stmt->execute();
 
-				include 'uploadFile.php';
+				
 
 
 				$connObject->cerrarConexion();
