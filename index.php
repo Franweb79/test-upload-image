@@ -124,15 +124,24 @@
 
                                 </div>
                             </div>
-                        
+                            <p></p>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb20 ">
 
                                 <input type="submit" class="btn btn-primary btn-block mb10" value="Send"/>
                             </div>
                         </form>
 
+                        <p></p>
+                        <!-- Button trigger modal -->
+
+
+                        <button type="button" id="myButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Launch modal with users data</button>
+
                     </div><!--col-->
                     <div class="col-sm">
+
+
 
                     </div><!--col-->
             </div><!--row-->
@@ -141,12 +150,7 @@
 
             
 
-        <!-- Button trigger modal -->
-        <!--<button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal</button>-->
-
-        <button type="button" id="myButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch modal with users data</button>
+      
 
 
         
@@ -157,20 +161,10 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Users with nick and profile picture</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="exampleModalBody">
-
-                    <?php
-                       // include 'controllers/get_user_data_controller.php';
-                       // include 'views/view_user_data.php';
-
-                        
-                        
-                       
-                    ?>
-                    ...<!-- TODO meter a una sesion lops resultados de usuarios, y si no hay "no data"-->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

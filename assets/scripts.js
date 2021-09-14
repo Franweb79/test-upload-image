@@ -31,7 +31,7 @@ $('#myButton').on('click', function () {
 
           $('#exampleModalBody').html(function(){
 
-            let allHTML="<ul>";
+            let allHTML="<table class='table table-success table-striped'>";
 
             //gets the server url
            let serverUrl= window.location.origin;
@@ -39,12 +39,12 @@ $('#myButton').on('click', function () {
            let imagePath=`${serverUrl}/test_upload_image/imagenes`;
             
             dataReturned.forEach(element => {
-              allHTML+=`<li>${element['nick']}</li>
-              <li><img src=${imagePath}/${element['foto']} alt=${element['foto']} width="200" height="200"/></li><br/> ` ;
+              allHTML+=`<tr><td>${element['nick']}</td>
+              <td><img src=${imagePath}/${element['foto']} alt=${element['foto']} width="200" height="200"/></td></tr> ` ;
               
             });
 
-            allHTML+="</ul>";
+            allHTML+="</table>";
   
             return allHTML;
   
