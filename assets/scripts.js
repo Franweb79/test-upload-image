@@ -30,10 +30,21 @@ $('#myButton').on('click', function () {
 
             let allHTML="<table class='table table-success table-striped'>";
 
-          //gets the server url
-           let serverUrl= window.location.origin;
+          /*gets the server url. 
+          
+            THIS WILL WORK ON DEVELOPMENT
+            
+            BUT NOT ON PRODUCTION, BETTER SIMPLY DO IMAGENES/
 
-           let imagePath=`${serverUrl}/test-upload-image/imagenes`;
+            YOU NEED NO SERVER URL OR FOLDER NAME ON THE SRC
+
+            let serverUrl= window.location.origin;
+
+            let imagePath=`${serverUrl}/test-upload-image/imagenes`;
+
+          */
+
+           let imagePath=`imagenes`;
             
             dataReturned.forEach(element => {
               allHTML+=`<tr><td><b>${element['nick']}</b></td>
