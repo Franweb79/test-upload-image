@@ -39,7 +39,7 @@ $('#myButton').on('click', function () {
            let imagePath=`${serverUrl}/test_upload_image/imagenes`;
             
             dataReturned.forEach(element => {
-              allHTML+=`<tr><td>${element['nick']}</td>
+              allHTML+=`<tr><td><b>${element['nick']}</b></td>
               <td><img src=${imagePath}/${element['foto']} alt=${element['foto']} width="200" height="200"/></td></tr> ` ;
               
             });
