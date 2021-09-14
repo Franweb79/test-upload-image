@@ -1,3 +1,5 @@
+This 
+
 lo hacemos el ajax en getusers sin jquery, pa no depender de librerias.
 
 lo que hara el boton (un form) es llamar al controlador get_user_data_controller.php que llama al metodo getAllUsers de usuario.php
