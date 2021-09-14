@@ -118,10 +118,10 @@
                             <p></p>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label class="control-label sr-only" for="avatar">Choose your avatar. Please no more than 50KB. Only png and jpg accepted</label>
+                                    <label class="control-label sr-only" for="avatar">Choose your avatar. Please no more than 50KB. Only .jpg accepted</label>
                                     <input name="avatar" type="file" 
                                     id="myAvatar" class="form-control" 
-                                    accept="image/png, image/jpeg"  required/>
+                                    accept="image/jpeg"  required/>
 
                                 </div>
                             </div>
