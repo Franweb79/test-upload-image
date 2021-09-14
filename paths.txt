@@ -1,2 +1,4 @@
 http://localhost/test-upload-image/
 
+http://test-upload-image.avanzartewebs.com/
+

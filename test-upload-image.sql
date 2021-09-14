@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-09-2021 a las 20:40:34
+-- Tiempo de generación: 14-09-2021 a las 14:59:40
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.8
 
@@ -37,7 +37,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`nick`, `foto`) VALUES
-('lady2', 'al-final-no-es-para-tanto.jpg');
+('Fran', 'foto-800.jpg');
 
 --
 -- Índices para tablas volcadas

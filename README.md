@@ -8,3 +8,4 @@
 ### You can upload images with max. 50KB size, and .jpg or .npg extensions.
 ### Many validations and usability tests are not done because this time the idea was to refresh the upload file logic.
 ### The idea on how to show modals with async data was taken from here https://stackoverflow.com/questions/29458705/ajax-request-with-bootstrap-modal-in-php
+### you cna check and use it here http://test-upload-image.avanzartewebs.com/ but take in mind I will restore the dabatabase each day so the users you created will be lost
