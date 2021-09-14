@@ -1,2 +1,2 @@
-http://localhost/test_upload_image/
+http://localhost/test-upload-image/
 

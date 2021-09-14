@@ -14,7 +14,7 @@
 		public $host="localhost";
 		public $user="root";
 		public $pass=""; //I must put it with no encryption!!
-		public $nombreBase="test_upload_image";
+		public $nombreBase="test-upload-image";
 		
 		public $conexion;
 		

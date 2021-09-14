@@ -36,7 +36,7 @@ $('#myButton').on('click', function () {
             //gets the server url
            let serverUrl= window.location.origin;
 
-           let imagePath=`${serverUrl}/test_upload_image/imagenes`;
+           let imagePath=`${serverUrl}/test-upload-image/imagenes`;
             
             dataReturned.forEach(element => {
               allHTML+=`<tr><td><b>${element['nick']}</b></td>
