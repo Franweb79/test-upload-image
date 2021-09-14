@@ -1,6 +1,7 @@
 <?php
 
 	require 'Conectar.php';
+
 	class Usuario
 	{
 	
@@ -53,20 +54,18 @@
 
 				$connObject=new Conectar();
 
-				//we create a connection on the "conexion" property of the class $connObject
+				//we create the connection on the "conexion" property of the class $connObject
 				$connObject->crearConexion();
-				//var_dump($connObject->conexion);
+
+				// prepare sql and bind parameters
 
 				$stmt=$connObject->conexion->prepare($sql);
-				// prepare sql and bind parameters
 				$stmt->bindParam(':nickUser', $nickUsuario);
 				$stmt->bindParam(':stringFoto', $stringFoto);
 
 				$stmt->execute();
 
 				
-
-
 				$connObject->cerrarConexion();
 
 			}catch(PDOException $e){
@@ -77,7 +76,7 @@
 
 		}
 
-		/*dentro de uploadFile.php, esta funcion actualizara la foto en la BBDD*/
+		/*this will used if we allow to change user profile picture*/
 		
 		function cambiarFotoUsuario($nickUsuario,$stringFoto)
 		{
@@ -127,21 +126,18 @@
 		}
 
 		
-		
-		//funcion para obtener datos de la base de datos
+		//TODO should be also done with PDO
 		function getAllUsers()
 		{
 			try{
 				
-				//needed to pass users to view_user_data.php
-				//session_start(); 
+				
 				$connObject=new Conectar();
 
-				//we create a connection on the "conexion" property of the class $connObject
+				//we create the connection on the "conexion" property of the class $connObject
 				$connObject->crearConexion();
 
-				//TODO haz esto con PDO Y CON AJAX,pero sin jquery asi ya d epaso repasamos algo parecido a my diary
-				//https://code.tutsplus.com/es/tutorials/how-to-use-ajax-in-php-and-jquery--cms-32494
+				
 				
 				$consulta="select * from usuarios";
 
@@ -152,23 +148,16 @@
 				
 				$result = $stmt->fetchAll();
 
-				//if no results, we will show "no results" on view_user_data.php
-				/*if(count($result)>0){
-					$_SESSION['users']=$result;
-				}else{
-					unset($_SESSION['users']);
-				}*/
 				
-				//print_r($result);//echo with array gives error
-					
-					
-				
-			
 			
 				$connObject->cerrarConexion();
-				//var_dump(gettype($result));
-				//die();
-				//remember on php, no return, must be echo (strings and so) or print_r(arrays and so)
+				
+				/*
+					remember on php, we can´t use return to send data to the front-end,
+					must be echo (strings and so) or print_r(arrays and so)
+					the json encode is to convert the array to JSON format. it can be read
+					by $.ajax with no more conversion needed
+				*/
 				print_r(json_encode($result));
 
 

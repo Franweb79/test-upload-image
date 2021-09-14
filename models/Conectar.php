@@ -8,7 +8,6 @@
 	 
 	class Conectar
 	{
-		//constantes con los datoss que vamos a usar para conectar a la bbdd avanzar1_avanzar1_frapri1_redsoc
 		
 		
 		public $host="localhost";
@@ -27,6 +26,9 @@
 			//$this->crearConexion();
 		}
 		
+		/*
+			we use PDO to avoid SQL injections and make back-end more secure
+		*/
 		function crearConexion()
 		{
 			try{
@@ -36,27 +38,21 @@
 				 // set the PDO error mode to exception
   				$this->conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-				//var_dump($this->conexion);
 
 			}catch(PDOException $e){
 				echo $e->getMessage();
 			}
 
-			//var_dump($this->conexion);
 		}
 
 		function cerrarConexion(){
 			$this->conexion=null;
 
-			//echo "conn closed";
-
-			//echo $this->conexion;
+			
 		}
 		
 		
-		
-		
-		
+			
 		
 	}//conectar	
 		

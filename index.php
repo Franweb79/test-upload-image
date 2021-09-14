@@ -3,13 +3,14 @@
 
     
     error_reporting(E_ALL);
+
     ini_set("display_errors", 1);
 
     include 'models/Usuario.php';
+
     /* 
     
-        we need it to show alerts and such, 
-        depending if user is being newly created or not
+        we need session to show alerts 
     */
     session_start();
 
@@ -22,26 +23,26 @@
 <html lang="en">
     
     <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Basic show image program with PHP and vanilla JS</title>
-    <meta name="description" content="A simple HTML5 Template for new projects.">
-    <meta name="Fran Prieto" content="avanzartewebs.com">
+        <title>Basic show image program with PHP, jQuery and vanilla JS</title>
+        <meta name="description" content="A simple HTML5 Template for new projects.">
+        <meta name="Fran Prieto" content="avanzartewebs.com">
 
-    
+        
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    
-
-
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        
     </head>
 
     <body>
 
 
         <?php
+            /*
+                check is session and session alert exists
+            */
             if(isset($_SESSION) && isset($_SESSION['alert'])  ){
         
                 if($_SESSION['alert']=="green"){
@@ -58,7 +59,7 @@
         ?>
                     
                     <div class="alert alert-danger" role="alert">
-                        Please use an .png or .jpg image with less than 50KB. No other image types or
+                        Please use .jpg image with less than 50KB. No other image types or
                         files allowed.
                     </div>
         <?php
@@ -89,7 +90,7 @@
             /*
             
                 the form must have the enctype="multipart/form-data" or 
-                won´t qork to upload the image 
+                won´t work to upload the image 
             
                 More info:
 
@@ -132,9 +133,8 @@
                         </form>
 
                         <p></p>
+
                         <!-- Button trigger modal -->
-
-
                         <button type="button" id="myButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Launch modal with users data</button>
 
@@ -147,13 +147,6 @@
             </div><!--row-->
         </div><!--container-->
        
-
-            
-
-      
-
-
-        
 
 
         <!-- Modal -->
@@ -174,7 +167,7 @@
         </div>
 
 
-        <!--always must include jquery before bootsrap js to make modals work-->
+        <!--always must include jquery before bootstrap js to make modals work-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
         <script src="assets/scripts.js"></script>

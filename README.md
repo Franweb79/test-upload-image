@@ -5,7 +5,7 @@
 ### Also jquery is needed in this case because in order to use Bootsrap modals you must include jquery before the bootstrap .js files.
 ### Another advantage of jequery for this project is that ajax calls to perform async request are much more legible and maintainable than with vanilla JS, as well as it allows me to manipulate the modal HTML easily.
 ### Feel free to use the code if you want. Actually the uploadFile.php will serve as a template for me whenever I have to do it. You have only to be careful with methods like insertUser() which are called inside this .php file because we will only create the user on database when the file we are trying to upload is allowed. Yes I am sure there are better ways to implement this but for now it is enough.
-### You can upload images with max. 50KB size, and .jpg or .npg extensions.
+### You can upload images with max. 50KB size, and .jpg extensions.
 ### Many validations and usability tests are not done because this time the idea was to refresh the upload file logic.
 ### The idea on how to show modals with async data was taken from here https://stackoverflow.com/questions/29458705/ajax-request-with-bootstrap-modal-in-php
 ### you cna check and use it here http://test-upload-image.avanzartewebs.com/ but take in mind I will restore the dabatabase each day so the users you created will be lost

@@ -9,23 +9,20 @@ $('#myButton').on('click', function () {
 
       type:'POST',
       dataType:'json',
-      url:'controllers/get_user_data_controller.php',//as from the index.php, the url
-      data: 'hola',
+      url:'controllers/get_user_data_controller.php',//this will be called from the index.php, so the url must be like it we were on index.php
       success:function(dataReturned){
-        console.log ("success");
-        console.log(dataReturned);//an array with results
-        console.log(dataReturned.length);
-        console.log(typeof(dataReturned));
+        
 
         /*
-          if array returned from backend is empty, "no result"+
-          if it has data, we iterate over data and add to a variable which will be
+          if array returned from backend (dataReturned) is empty, we set 
+          the text shown in modal to "no result"
+          if array has data, we iterate over data and add each element to a variable which will be
           shown on the modal
         */
         if(dataReturned.length===0)
         {
           $('#exampleModalBody').html("no result");
-         // alert("e");
+         
         }
         else{
 
@@ -33,7 +30,7 @@ $('#myButton').on('click', function () {
 
             let allHTML="<table class='table table-success table-striped'>";
 
-            //gets the server url
+          //gets the server url
            let serverUrl= window.location.origin;
 
            let imagePath=`${serverUrl}/test-upload-image/imagenes`;
@@ -51,11 +48,6 @@ $('#myButton').on('click', function () {
           });
 
         }
-
-       
-        
-        
-          //dataReturned[0]['nick']);
 
         
       },

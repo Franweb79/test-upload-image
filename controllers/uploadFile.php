@@ -12,7 +12,7 @@
 	 /*
 	 
 	 	I need to recover the session in order to store 
-		 the flag and show a proper message
+		the alert and show a proper message is user is successfully registered or not
 
 	*/
 	
@@ -22,7 +22,7 @@
 	
 	
 	$target_dir="../imagenes/"; /*$target_dir - specifies the directory where the file is going to be placed*/
-	//echo $target_dir;
+	
 	
 
 	/*
@@ -39,7 +39,7 @@
 '	*/
 	$fileName=basename($_FILES['avatar']['name']); 
 	
-	// "../imagenes/carolina.jpg" 
+	
 	$targetFile=$target_dir.basename($_FILES['avatar']['name']);
 	
 	var_dump($_FILES['avatar']['name']);
@@ -47,39 +47,40 @@
 	
 	
 	/*
-		this will allow only certain image file types, to avoid other image or file types like pdf
+		we will allow only certain image file types, to avoid other image or file types like pdf
 		https://www.w3schools.com/php/func_filesystem_pathinfo.asp
 
-		this will allow us to get the file extension with the help of the
+		to do that, we will ise pathinfo(), which will allow us to get the file extension with the help of the
 		PATHINFO_EXTENSION
 	*/
 	$fileType=pathinfo($targetFile,PATHINFO_EXTENSION); 
 	
 	$fileSize=basename($_FILES['avatar']['size']);/*to evalute the size*/
 	
+
 	
+	/* 
+		we evaluate if type is right (only certain image file types allowed)
+
+		If the extension or size -validated on the elseif-, is not correct, we send it back to index.php
+		and there we will show the proper message
+
+		To do that we create a $_SESSION['alert'] variable
+		
+
+	*/
 	
-	
-	
-	
-	/* https://stackoverflow.com/questions/18929178/move-uploaded-file-function-is-not-working */
-	
-	if($fileType != 'jpg' && $fileType != 'jpeg') /*we evaluate if type is right (only certain image file types allowed)*/
+	if($fileType != 'jpg' && $fileType != 'jpeg') /**/
 	{
 		
-		/*f the extension is not correct, we send it back to modDatos and there we validate that it shows that it is wrong*/
 		
-		/*this session data will travel from principal.php to the view_vista_principal.php and there it will show that alert with the
-
-			appropiate validation*/
-		
-		$_SESSION['alert']="red";//LO PODEMOS MANDAR AL INDEX Y QUE ALLI MUESTRE LA BANDERA DE ERROR
+		$_SESSION['alert']="red";
 		
 		header('Location: ../index.php');
 	
 	}
 	
-	elseif($fileSize>50000)/*if size is more than 50KB, no*/
+	elseif($fileSize>50000)/*if size is more than 50KB*/
 	{
 		$_SESSION['alert']="red";
 		
@@ -90,7 +91,7 @@
 		
 	}
 	
-	else/*if extension is right and size is less or equel than required, we insert user and upload*/
+	else/*if extension is right and size is less or equal than required, we insert user and upload file*/
 	{
 			
 		$user=new Usuario();
@@ -103,36 +104,22 @@
 
 			this method will copy the specified file on first parameter, to the location of second parameter
 
+			I had some problems that I solved with this help: 
+			
+			https://stackoverflow.com/questions/18929178/move-uploaded-file-function-is-not-working 
+
 
 		*/
 
 		
 		move_uploaded_file($_FILES['avatar']['tmp_name'],$targetFile);
 	
-	
-		//$usuario=new Usuario();
-
 		/*
-			TODO miramos desde por aqui, ya podemos crear el user con los datos delform
-			and upload picture to imagenes
-			ahora hay que hacer que en una paginas de view usuario de vea nombre y foto.
+			to say to index.php user is succ. registered, we also use the session variable 
 		*/
-	
-		/*
-			ESTO ES SI LA CAMBIAMOS CON EL USER YA CREADO, en ese caso habra
-			que meter alguna logica porque vamos a incluir este php tanto para crear user como 
-			para updatearlo (en la session, un S_session[new_user] o algo asi, y si no es nuevo usuario
-			porque es en el update, pues eso) 
+		$_SESSION['alert']="green";
 		
-			$usuario->cambiarFotoUsuario($_SESSION['usuario']->nick,$fileName);
-		*/
-		$_SESSION['alert']="green";/*to say it is correctly uploaded on a flag alert, the same used to say the other data is succesfully updated
 		
-		/*
-			the green alert is show in the view_user_data section, 
-			that will be include on the index.php if we have 
-			a $_SESSION['bandera']="green" (we have to destroy it after shown, remember)
-		*/
 	
 		header('Location: ../index.php');
 
