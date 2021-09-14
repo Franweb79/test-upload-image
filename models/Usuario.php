@@ -126,7 +126,6 @@
 		}
 
 		
-		//TODO should be also done with PDO
 		function getAllUsers()
 		{
 			try{
