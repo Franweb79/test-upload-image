@@ -151,13 +151,8 @@
 			
 				$connObject->cerrarConexion();
 				
-				/*
-					remember on php, we can´t use return to send data to the front-end,
-					must be echo (strings and so) or print_r(arrays and so)
-					the json encode is to convert the array to JSON format. it can be read
-					by $.ajax with no more conversion needed
-				*/
-				print_r(json_encode($result));
+				
+				echo json_encode($result);
 
 
 
